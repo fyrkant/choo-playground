@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run copy && budo src/app.js --serve=dist/app.js --open -- -t babelify",
+    "copy": "mkdir -p dist && cp src/index.html dist/",
+    "compile": "npm run copy && browserify index.js -o dist/index.js -t babelify"
   },
   "author": "",
   "license": "ISC",
