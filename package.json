@@ -6,10 +6,16 @@
   "scripts": {
     "deploy": "npm run compile && firebase deploy",
     "lint": "standard src/**/*.js",
-    "lint:fix": "standard-format src/**/*.js -w",
-    "start": "npm run copy && budo src/app.js --serve=dist/app.js --open -- -t babelify",
+    "lint:fix": "standard-format -w src/",
+    "start": "npm run copy && budo src/app.js --serve=dist/app.js --open -- ",
     "copy": "mkdir -p dist && cp src/index.html dist/",
-    "compile": "npm run copy && browserify src/app.js -o dist/app.js -t babelify"
+    "compile": "npm run copy && browserify src/app.js -o dist/app.js "
+  },
+  "browserify": {
+    "transform": [
+      "sheetify/transform",
+      "babelify"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,7 +31,11 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "budo": "^8.3.0",
+    "css-extract": "^1.1.0",
+    "insert-css": "^0.2.0",
+    "sheetify": "^5.0.2",
     "standard": "^7.1.2",
-    "standard-format": "^2.2.1"
+    "standard-format": "^2.2.1",
+    "tachyons": "^4.0.0-beta.31"
   }
 }
