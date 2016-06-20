@@ -1,14 +1,20 @@
 {
   "name": "hire",
   "version": "0.0.1",
-  "description": "",
+  "description": "testing choo",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
     "start": "npm run copy && budo src/app.js --serve=dist/app.js --open -- -t babelify",
     "copy": "mkdir -p dist && cp src/index.html dist/",
     "compile": "npm run copy && browserify index.js -o dist/index.js -t babelify"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mw222rs/choo-playground.git"
+  },
+  "author": "Mattias W",
   "license": "ISC",
   "dependencies": {
     "choo": "^2.2.1"
@@ -17,6 +23,9 @@
     "babel-preset-es2015": "^6.9.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
-    "budo": "^8.3.0"
+    "budo": "^8.3.0",
+    "eslint": "^2.13.0",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1"
   }
 }
