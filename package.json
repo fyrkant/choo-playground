@@ -4,11 +4,12 @@
   "description": "testing choo",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/**/*.js",
-    "lint:fix": "eslint src/**/*.js --fix",
+    "deploy": "npm run compile && firebase deploy",
+    "lint": "standard src/**/*.js",
+    "lint:fix": "standard-format src/**/*.js -w",
     "start": "npm run copy && budo src/app.js --serve=dist/app.js --open -- -t babelify",
     "copy": "mkdir -p dist && cp src/index.html dist/",
-    "compile": "npm run copy && browserify index.js -o dist/index.js -t babelify"
+    "compile": "npm run copy && browserify src/app.js -o dist/app.js -t babelify"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,7 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "budo": "^8.3.0",
-    "eslint": "^2.13.0",
-    "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.1"
+    "standard": "^7.1.2",
+    "standard-format": "^2.2.1"
   }
 }
